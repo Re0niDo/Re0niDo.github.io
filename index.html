@@ -4,6 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Leo's personal website - Software Engineer specializing in React & .NET. Explore my web development projects and experiments." />
+    <meta name="author" content="Leo" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Leo's Page" />
+    <meta property="og:description" content="Software Engineer · TTRPG Storyteller · Mixology Enthusiast" />
+    <meta property="og:url" content="https://re0nido.github.io/" />
+    <meta property="og:image" content="https://re0nido.github.io/avatar.png" />
+    
     <!-- Pico.css (classless, centered viewport) -->
     <link
       rel="stylesheet"
@@ -11,12 +21,21 @@
     />
     <link rel="icon" type="image/png" href="avatar.png" />
     <title>Leo's Page</title>
+    
+    <!-- Inline theme script to prevent flash -->
+    <script>
+      (function() {
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = storedTheme || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <style>
       /* tiny tweaks */
       :root {
         --accent-color: #ff9800;
         --accent-color-hover: #ffb74d;
-        --border-color: rgba(255, 255, 255, 0.12);
       }
       :root[data-theme="light"] {
         --border-color: rgba(15, 23, 42, 0.12);
@@ -145,8 +164,6 @@
     </style>
   </head>
   <body>
-    <header></header>
-
     <main>
       <section class="card">
         <div class="grid grid-2">
@@ -170,6 +187,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"
+                  aria-hidden="true"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path
@@ -191,6 +209,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"
+                  aria-hidden="true"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
@@ -252,6 +271,7 @@
         viewBox="0 0 24 24"
         fill="currentColor"
         class="icon icon-tabler icons-tabler-filled icon-tabler-brightness"
+        aria-hidden="true"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path
@@ -261,14 +281,13 @@
     </button>
 
     <script>
+      // Initialize year in footer
       document.getElementById("y").textContent = new Date().getFullYear();
-      const root = document.documentElement;
+      
+      // Theme toggle functionality
       const toggleButton = document.getElementById("theme-toggle");
-      const storedTheme = localStorage.getItem("theme");
-      const initialTheme = storedTheme || "dark";
-      root.setAttribute("data-theme", initialTheme);
-
       toggleButton?.addEventListener("click", () => {
+        const root = document.documentElement;
         const nextTheme =
           root.getAttribute("data-theme") === "light" ? "dark" : "light";
         root.setAttribute("data-theme", nextTheme);
