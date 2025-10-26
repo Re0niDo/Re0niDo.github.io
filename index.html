@@ -13,6 +13,10 @@
     <title>Leo's Page</title>
     <style>
       /* tiny tweaks */
+      :root {
+        --accent-color: #ff9800;
+        --accent-color-hover: #ffb74d;
+      }
       body > main {
         max-width: 835px;
         width: 100%;
@@ -27,6 +31,13 @@
         padding: 1.25rem;
         border-radius: 14px;
         border: 1px solid var(--muted-border-color, #e5e7eb20);
+      }
+      a {
+        color: var(--accent-color);
+      }
+      a:hover,
+      a:focus-visible {
+        color: var(--accent-color-hover);
       }
       .avatar {
         width: 120px;
@@ -63,13 +74,14 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--primary, #3b82f6);
-        color: var(--primary-inverse, #f8fafc);
+        background: var(--accent-color);
+        color: #0f0f0f;
         box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
         cursor: pointer;
         transition: transform 150ms ease, box-shadow 150ms ease;
       }
       .fab:hover {
+        background: var(--accent-color-hover);
         transform: translateY(-2px);
         box-shadow: 0 22px 36px rgba(0, 0, 0, 0.4);
       }
