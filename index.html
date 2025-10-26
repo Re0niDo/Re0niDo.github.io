@@ -16,6 +16,13 @@
       :root {
         --accent-color: #ff9800;
         --accent-color-hover: #ffb74d;
+        --border-color: rgba(255, 255, 255, 0.12);
+      }
+      :root[data-theme="light"] {
+        --border-color: rgba(15, 23, 42, 0.12);
+      }
+      :root[data-theme="dark"] {
+        --border-color: rgba(255, 255, 255, 0.12);
       }
       body > main {
         max-width: 835px;
@@ -30,10 +37,11 @@
       .card {
         padding: 1.25rem;
         border-radius: 14px;
-        border: 1px solid var(--muted-border-color, #e5e7eb20);
+        border: 1px solid var(--border-color);
       }
       a {
         color: var(--accent-color);
+        --pico-underline: linear-gradient(var(--accent-color), var(--accent-color));
       }
       a:hover,
       a:focus-visible {
@@ -99,7 +107,7 @@
       }
       .projects-table-wrapper {
         margin-top: 0.75rem;
-        border: 1px solid var(--muted-border-color, #e5e7eb20);
+        border: 1px solid var(--border-color);
         border-radius: 12px;
         overflow: hidden;
         background-color: rgba(255, 255, 255, 0.02);
@@ -120,7 +128,7 @@
         color: var(--muted-color, #94a3b8);
       }
       .projects-table tbody tr + tr {
-        border-top: 1px solid var(--muted-border-color, #e5e7eb20);
+        border-top: 1px solid var(--border-color);
       }
       .projects-table tbody tr:hover {
         background-color: rgba(59, 130, 246, 0.08);
