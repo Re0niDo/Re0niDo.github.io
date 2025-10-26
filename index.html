@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,6 +51,39 @@
       }
       .grid-2 .avatar {
         justify-self: center;
+      }
+      .fab {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary, #3b82f6);
+        color: var(--primary-inverse, #f8fafc);
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+      .fab:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 36px rgba(0, 0, 0, 0.4);
+      }
+      .fab svg {
+        width: 52px;
+        height: 52px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fab {
+          transition: none;
+        }
+        .fab:hover {
+          transform: none;
+        }
       }
       .projects-table-wrapper {
         margin-top: 0.75rem;
@@ -104,7 +137,7 @@
               Software Engineer · TTRPG Storyteller · Mixology Enthusiast
             </p>
             <p class="icons" style="margin-top: 0.75rem">
-              <!-- Tabler: GitHub -->
+              <!-- Tabler: IconBrandGithub -->
               <a href="https://github.com/Re0niDo" aria-label="GitHub">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +158,7 @@
                 </svg>
                 <span>GitHub</span>
               </a>
-              <!-- Tabler: Brand X (Twitter) -->
+              <!-- Tabler: IconBrandX -->
               <a href="https://x.com/Re0niDo" aria-label="X">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +186,8 @@
       <section style="margin-top: 1.25rem">
         <h2>About</h2>
         <p>
-          I mostly build web things (React & .NET is my main stack). Here you can find my projects and experiments.
+          I mostly build web things (React & .NET is my main stack). Here you
+          can find my projects and experiments.
         </p>
 
         <h2>Projects</h2>
@@ -168,7 +202,9 @@
             <tbody>
               <tr>
                 <td>
-                  <a href="/Marshmallow-Kingdom-Memory-Game/">Marshmallow Kingdom Memory Game</a>
+                  <a href="/Marshmallow-Kingdom-Memory-Game/"
+                    >Marshmallow Kingdom Memory Game</a
+                  >
                 </td>
                 <td>JavaScript / Phaser 3</td>
               </tr>
@@ -182,8 +218,42 @@
       </footer>
     </main>
 
+    <button
+      class="fab"
+      type="button"
+      aria-label="Toggle color theme"
+      id="theme-toggle"
+    >
+    <!-- Tabler: IconBrightnessFilled -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="icon icon-tabler icons-tabler-filled icon-tabler-brightness"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path
+          d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336m-9 1.732a8 8 0 0 0 4.001 14.928l-.001 -16a8 8 0 0 0 -4 1.072"
+        />
+      </svg>
+    </button>
+
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
+      const root = document.documentElement;
+      const toggleButton = document.getElementById("theme-toggle");
+      const storedTheme = localStorage.getItem("theme");
+      const initialTheme = storedTheme || "dark";
+      root.setAttribute("data-theme", initialTheme);
+
+      toggleButton?.addEventListener("click", () => {
+        const nextTheme =
+          root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("theme", nextTheme);
+      });
     </script>
   </body>
 </html>
