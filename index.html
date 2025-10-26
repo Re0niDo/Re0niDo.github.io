@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Pico.css (classless, centered viewport) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
+    />
+    <title>Leo's Page</title>
+    <style>
+      /* tiny tweaks */
+      main {
+        max-width: 720px;
+        margin: 4rem auto;
+      }
+      .card {
+        padding: 1.25rem;
+        border-radius: 14px;
+        border: 1px solid var(--muted-border-color, #e5e7eb20);
+      }
+      .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 999px;
+        object-fit: cover;
+      }
+      .icons a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-right: 0.75rem;
+      }
+      .icons svg {
+        width: 22px;
+        height: 22px;
+        vertical-align: -3px;
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+      }
+      .grid-2 .avatar {
+        justify-self: center;
+      }
+      @media (min-width: 640px) {
+        .grid-2 {
+          grid-template-columns: auto 1fr;
+          align-items: center;
+        }
+        .grid-2 .avatar {
+          justify-self: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <section class="card">
+        <div class="grid grid-2">
+          <img class="avatar" src="avatar.png" alt="Avatar" />
+          <div>
+            <h1 style="margin: 0">Leo</h1>
+            <p style="margin: 0.25rem 0 0 0">
+              Software Engineer · TTRPG Storyteller · Mixology Enthusiast
+            </p>
+            <p class="icons" style="margin-top: 0.75rem">
+              <!-- Tabler: GitHub -->
+              <a href="https://github.com/Re0niDo" aria-label="GitHub">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+                  />
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <!-- Tabler: Brand X (Twitter) -->
+              <a href="https://x.com/Re0niDo" aria-label="X">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                </svg>
+                <span>X</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top: 1.25rem">
+        <h2>About</h2>
+        <p>
+          I mostly build web things (React & .NET is my main stack). Here you can find my projects and experiments.
+        </p>
+
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <a href="/Marshmallow-Kingdom-Memory-Game/">Marshmallow Kingdom Memory Game [JavaScript | Phaser 3]</a>
+          </li>
+        </ul>
+      </section>
+
+      <footer style="margin-top: 2rem">
+        <small>© <span id="y"></span> Leo</small>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
